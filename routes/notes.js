@@ -1,14 +1,18 @@
 const notes = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
-const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
+const {
+  readFromFile,
+  readAndAppend,
+writeToFile,
+  } = require('../helpers/fsUtils');
 
-// GET Route for retrieving all the tips
+// GET Route for retrieving all 
 notes.get('/', (req, res) => {
   console.info('${req.method} request received for notes');
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
 });
 
-//GET route for specific tip
+//GET route 
 notes.get('/:note_id',(req, res) => {
   const noteId = req.params.note_id;
   readFromFile('./db/db.json')
@@ -21,7 +25,7 @@ notes.get('/:note_id',(req, res) => {
   })
 });
 
-//DELETE route for specific tip
+//DELETE route 
 notes.delete('/:note_id',(req, res) => {
   const noteId = req.params.note_id;
   readFromFile('./db/db.json')
@@ -36,7 +40,7 @@ notes.delete('/:note_id',(req, res) => {
   })
 });
 
-// POST Route for new note
+// POST Route 
 notes.post('/', (req, res) => {
   // Destructuring assignment for the items in req.body
   console.log(req.body);
@@ -51,17 +55,11 @@ notes.post('/', (req, res) => {
       id: uuidv4(),
     };
 
-    readAndAppend(newNote, './db/feedback.json');
-
-    const response = {
-      status: 'success',
-      body: newFeedback,
-    };
-
-    res.json(response);
+    readAndAppend(newNote, './db/db.json');
+    res.json('Note added successfully');
   } else {
-    res.json('Error in posting feedback');
+    res.json('Error in adding Note');
   }
 });
 
-module.exports = fb;
+module.exports = notes;
