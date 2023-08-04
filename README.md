@@ -7,13 +7,13 @@ This project involved modifying starter code to create an application called Not
 
 Below is a summary of the changes/additions that have been made to the original starter code.
 
-* A 'db.json' file added to the back-end to store and retrive notes using the 'fs' module.
+* A `db.json` file added to the back-end to store and retrive notes using the `fs` module.
 
 * `GET /notes`  returns the `notes.html` file.
 
 * `GET *` returns the `index.html` file.
 
-The following API routes should be created:
+The following API routes were created:
 
 * `GET /routes/notes` reads the `db.json` file and returns all saved notes as JSON.
 
@@ -38,7 +38,7 @@ The following API routes should be created:
 ![Website Screenshot](websiteScreenshot.png)
 
 # Links
-[Click here to access the deployed website.](https://fadumaabdi.github.io/CalenderApplication/)
+[Click here to access the deployed website.](https://note-takerapplication-d7df41159d31.herokuapp.com/)
 
 [Click here to access the files on the github repository.](https://github.com/fadumaabdi/NoteTakerApplication)
 
