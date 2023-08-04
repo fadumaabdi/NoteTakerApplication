@@ -32,7 +32,7 @@ notes.delete('/:note_id',(req, res) => {
   .then((data)=> JSON.parse(data))
   .then((json)=> {
     //new array of allnotes except the one with UID
-    const result = json.filter((note)=> note.id !== noteID);
+    const result = json.filter((note)=> note.id !== noteId);
     //save array to fs
     writeToFile('./db/db.json', result);
    //respond to DELTE request
